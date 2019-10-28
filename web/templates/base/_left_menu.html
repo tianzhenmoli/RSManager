@@ -1,0 +1,41 @@
+{% load static %}
+<div class="col-md-3 left_col" style="position: fixed">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="#" class="site_title"><span>&emsp;资源素材库</span></a>
+        </div>
+        <div class="clearfix"></div>
+        <!-- 左侧菜单顶部用户头像和内容 -->
+        <div class="profile">
+            <div class="profile_pic">
+                <img src="{% static 'img/icon.ico' %}" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>Welcome, </span>
+                <h2>{{ '管理员' }}</h2>
+            </div>
+        </div>
+        <br />
+        <!-- 左侧功能菜单 -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <ul class="nav side-menu">
+                    {% for dir in left_dirs %}
+                        <li>
+                            <a href="{% url 'show_dir_1' dir1=dir %}"><i class="fa fa-folder"></i>{{ dir }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <ul class="nav side-menu">
+                    <li>
+                        <a href="#" onclick="javascript:history.back(-1);"><i class="fa reply"></i>返回上一层目录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

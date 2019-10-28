@@ -1,0 +1,87 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+{#    自定义css  #}
+    <link rel="stylesheet" href="{% static 'css/select-image-style.css' %}" media="screen" type="text/css">
+{% endblock %}
+{% block content %}
+<div class="right_col" role="main">
+<ol id='bread' class="breadcrumb">
+    <li id="{{ current_dir }}"></li>
+</ol>
+
+<ol id='bread_true'  class="breadcrumb">
+    {% for k, v in bread_tree.items %}
+        <li id="{{ current_dir }}"><button id="{{ k }}" class="btn btn-primary btn-xs">{{ v }}</button></li>
+    {% endfor %}
+</ol>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>图片管理</h2>
+                    <!-- 右上角功能开关 -->
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <!-- 右侧主体内容 -->
+                    <div id="body_w">
+                        <div class="clearfix">
+                            <button class="select">&nbsp;</button>
+                            <button class="send " data-counter="0">&#10004;</button>
+                            <button id="down_load" class="btn btn-primary">批量打包下载</button>
+                            <button id="psd2pic" class="btn btn-info">PSD转换PNG</button>
+                            <button class="btn btn-danger disabled">PSD转换PNG时间可能稍长请耐心等待</button>
+                        </div>
+                        <ul id="ul_w">
+                            {% for d in dir_data %}
+                                <li id="li_w" >
+                                <div style="position:relative;width:200px;height:200px;">
+                                    <span><img id="{{ d }}" src="{% static 'img/dir_pic_new.jpg' %}" alt="" /></span>
+                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ d }}</h6></div>
+                                </div>
+                                </li>
+                            {% endfor %}
+                            {% for f in file_data %}
+                                <li id="li_w" >
+                                <div style="position:relative;width:200px;height:200px;">
+                                    <span><img id="{{ f }}" src="{% static 'img/file_pic.jpg' %}" alt="" /></span>
+                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ f }}</h6></div>
+                                </div>
+                                </li>
+                            {% endfor %}
+                            {% for psd in psd_data %}
+                                <li id="li_w">
+                                <div style="position:relative;width:200px;height:200px;">
+                                    <span><img id="{{ psd }}" src="{% static 'img/file_pic.jpg' %}" alt="" /></span>
+                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ psd }}</h6></div>
+                                </div>
+                                </li>
+                            {% endfor %}
+                            {% for img in pic_data %}
+                                <li id="li_w">
+                                <div style="position:relative;width:200px;height:200px;">
+                                    <img id="{{ img }}" src="/static/source/{{ current_dir }}/{{ img }}" alt="" />
+                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ img }}</h6></div>
+                                </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+{#    自定义js  #}
+    <script src="{% static 'js/mult_select_image.js' %}"></script>
+{% endblock %}
