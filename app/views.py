@@ -110,7 +110,7 @@ def web_change_dir(request):
     if url and dirname:
         ret = ajax_url_handle(str(url), str(dirname), dirid)
     elif url and dirid:
-        ret = ajax_url_handle(str(url), dirname, int(dirid))
+        ret = ajax_url_handle(str(url), dirname, str(dirid))
     else:
         ret = None
     if ret:
