@@ -42,7 +42,7 @@ def show_multilayer_dir(request, **kwargs):
                       'left_dirs': tree_dict,
                       'dir_data': ret_dict['dirs'],
                       'file_data': ret_dict['files'],
-                      'pic_data': ret_dict['素材资源'],
+                      'pic_data': ret_dict['pic'],
                       'psd_data': ret_dict['psd'],
                       'current_dir': cur_dir,
                       'bread_tree': d_dict,

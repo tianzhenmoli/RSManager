@@ -44,7 +44,7 @@ def show_dir(abs_path_list):
                     psd_list.append(item)
                 else:
                     file_list.append(item)
-            ret_dict['files'], ret_dict['素材资源'], ret_dict['psd'] = file_list, pic_list, psd_list
+            ret_dict['files'], ret_dict['pic'], ret_dict['psd'] = file_list, pic_list, psd_list
             break
     except Exception as e:
         print('Error:', e)
