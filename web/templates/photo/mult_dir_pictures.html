@@ -31,6 +31,7 @@
 
                 <div class="x_content">
                     <!-- 右侧主体内容 -->
+
                     <div id="body_w">
                         <div class="clearfix">
                             <button class="select">&nbsp;</button>
@@ -39,40 +40,66 @@
                             <button id="psd2pic" class="btn btn-info">PSD转换PNG</button>
                             <button class="btn btn-danger disabled">PSD转换PNG时间可能稍长请耐心等待</button>
                         </div>
+                        <div class="row" style="background-color: white">
                         <ul id="ul_w">
                             {% for d in dir_data %}
                                 <li id="li_w" >
-                                <div style="position:relative;width:200px;height:200px;">
-                                    <span><img id="{{ d }}" src="{% static 'img/dir_pic_new.jpg' %}" alt="" /></span>
-                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ d }}</h6></div>
+                                <div class="coll-md-55">
+                                    <div class="thumbnail" style="padding: 0">
+                                        <div class="image view">
+                                            <img id="{{ d }}"  style="width: 70%" src="{% static 'img/dir.jpg' %}" alt="" />
+                                        </div>
+                                        <div class="caption">
+                                            <p>{{ d }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 </li>
                             {% endfor %}
                             {% for f in file_data %}
                                 <li id="li_w" >
-                                <div style="position:relative;width:200px;height:200px;">
-                                    <span><img id="{{ f }}" src="{% static 'img/file_pic.jpg' %}" alt="" /></span>
-                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ f }}</h6></div>
+                                <div class="coll-md-55">
+                                    <div class="thumbnail" style="padding: 0">
+                                        <div class="image view">
+                                            <img id="{{ f }}" src="{% static 'img/file.jpg' %}" alt="" />
+                                        </div>
+                                        <div class="caption">
+                                            <p>{{ f }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 </li>
                             {% endfor %}
                             {% for psd in psd_data %}
-                                <li id="li_w">
-                                <div style="position:relative;width:200px;height:200px;">
-                                    <span><img id="{{ psd }}" src="{% static 'img/file_pic.jpg' %}" alt="" /></span>
-                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ psd }}</h6></div>
+                                <li id="li_w" >
+                                <div class="coll-md-55">
+                                    <div class="thumbnail" style="padding: 0">
+                                        <div class="image view">
+                                            <img id="{{ psd }}" src="{% static 'img/file.jpg' %}" alt="" />
+                                        </div>
+                                        <div class="caption">
+                                            <p>{{ psd }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 </li>
                             {% endfor %}
                             {% for img in pic_data %}
-                                <li id="li_w">
-                                <div style="position:relative;width:200px;height:200px;">
-                                    <img id="{{ img }}" src="/static/source/{{ current_dir }}/{{ img }}" alt="" />
-                                    <div style="position:absolute;width:200px;height:20px;left:0;top:190px; font-weight:bolder "><h6>{{ img }}</h6></div>
+                                <li id="li_w" >
+                                <div class="coll-md-55">
+                                    <div class="thumbnail" style="padding: 0">
+                                        <div class="image view">
+                                            <img id="{{ img }}" src="/static/source/{{ current_dir }}/{{ img }}" alt="" />
+                                        </div>
+                                        <div class="caption">
+                                            <p>{{ img }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 </li>
                             {% endfor %}
                         </ul>
+                        </div>
                     </div>
                 </div>
             </div>
